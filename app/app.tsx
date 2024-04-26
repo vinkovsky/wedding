@@ -125,13 +125,14 @@ function Wrapper() {
       />
 
       <Environment map={env} blur={1} environmentIntensity={0.8} />
+      <EffectComposer>
+        <N8AO aoRadius={0.15} intensity={4} distanceFalloff={2} />
+        <Bloom luminanceThreshold={2.5} intensity={5} levels={9} mipmapBlur />
+        <ToneMapping />
+      </EffectComposer>
       <ScrollControls damping={0.1} pages={5}>
         <Wedding env={env} />
-        <EffectComposer>
-          <N8AO aoRadius={0.15} intensity={4} distanceFalloff={2} />
-          <Bloom luminanceThreshold={2.5} intensity={5} levels={9} mipmapBlur />
-          <ToneMapping />
-        </EffectComposer>
+
         <Scroll html style={{ width: "100%" }}>
           <h1 className="absolute text-[50vw] top-[50vh] right-[20vw]">Ты</h1>
           <h1 className="absolute font-extralight text-9xl top-[180vh] right-[10vw]">
